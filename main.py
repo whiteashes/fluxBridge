@@ -112,24 +112,11 @@ def notify():
         msg["checkName"] = request.json["_check_name"]
         msg["level"] = request.json["_level"]
         msg["message"] = request.json["_message"]
-        
-        keysList = list(request.json)
-        key = keysList[17]
-        print(key)
-        #da sistemare -> prendere solo i field che non iniziano per _
-        
-        msg[key] = msg.pop("_field")
-        msg[key] = request.json[key]
          
-        #msg["queueTime"] = request.json["queuetime"]
+        msg["queueTime"] = request.json["queuetime"]
         msg["sourceMeasurement"] = request.json["_source_measurement"]
         msg["timestamp"] = request.json["_status_timestamp"]
         
-        #print(msg[key])
-
-
-    #then send data to telegram endpoint
-
     return {'result':"OK 201"}
 
 
